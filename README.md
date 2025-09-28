@@ -31,24 +31,23 @@ Each query for this project aimed at investigating specific aspects of the data 
 To identify the highest-paying roles, I filtered data analyst positions by average yearly salary and location, focusing on remote jobs. This query highlights the high paying opportunities in the field.
 
 ```sql
-SELECT	
-	job_id,
-	job_title,
-	job_location,
-	job_schedule_type,
-	salary_year_avg,
-	job_posted_date,
+SELECT 
+    job_id,
+    job_title,
+    job_location,
+    job_schedule_type,
+    job_posted_date,
     name AS company_name
-FROM
+FROM 
     job_postings_fact
 LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id
 WHERE
     job_title_short = 'Data Analyst' AND 
-    job_location = 'Anywhere' AND 
-    salary_year_avg IS NOT NULL
-ORDER BY
+    job_location = 'India' AND
+    Salary_year_avg IS NOT NULL 
+ORDER BY 
     salary_year_avg DESC
-LIMIT 10;
+LIMIT 10
 ```
 Here's the breakdown of the top data analyst jobs in 2023:
 - **Wide Salary Range:** Top 10 paying data analyst roles span from $184,000 to $650,000, indicating significant salary potential in the field.
@@ -62,19 +61,20 @@ Here's the breakdown of the top data analyst jobs in 2023:
 To understand what skills are required for the top-paying jobs, I joined the job postings with the skills data, providing insights into what employers value for high-compensation roles.
 ```sql
 WITH top_paying_jobs AS (
-    SELECT	
+    SELECT 
         job_id,
         job_title,
         salary_year_avg,
+        job_posted_date,
         name AS company_name
-    FROM
+    FROM 
         job_postings_fact
     LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id
     WHERE
         job_title_short = 'Data Analyst' AND 
-        job_location = 'Anywhere' AND 
-        salary_year_avg IS NOT NULL
-    ORDER BY
+        job_location = 'India' AND
+        Salary_year_avg IS NOT NULL 
+    ORDER BY 
         salary_year_avg DESC
     LIMIT 10
 )
@@ -82,11 +82,12 @@ WITH top_paying_jobs AS (
 SELECT 
     top_paying_jobs.*,
     skills
-FROM top_paying_jobs
+FROM 
+    top_paying_jobs
 INNER JOIN skills_job_dim ON top_paying_jobs.job_id = skills_job_dim.job_id
 INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
-ORDER BY
-    salary_year_avg DESC;
+ORDER BY 
+    Salary_year_avg DESC
 ```
 Here's the breakdown of the most demanded skills for the top 10 highest paying data analyst jobs in 2023:
 - **SQL** is leading with a bold count of 8.
@@ -103,19 +104,21 @@ This query helped identify the skills most frequently requested in job postings,
 
 ```sql
 SELECT 
-    skills,
+    skills_dim.skill_id,
+    skills_dim.skills,
     COUNT(skills_job_dim.job_id) AS demand_count
 FROM job_postings_fact
 INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
 INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
 WHERE
-    job_title_short = 'Data Analyst' 
-    AND job_work_from_home = True 
-GROUP BY
-    skills
-ORDER BY
+    job_postings_fact.job_title_short = 'Data Analyst'
+    AND job_postings_fact.job_location ILIKE '%India%'
+GROUP BY 
+    skills_dim.skill_id, skills_dim.skills
+ORDER BY 
     demand_count DESC
 LIMIT 5;
+
 ```
 Here's the breakdown of the most demanded skills for data analyst :
 
