@@ -55,7 +55,7 @@ Here's the breakdown of the top data analyst jobs in 2023:
 - **Diverse Employers:** Companies like SmartAsset, Meta, and AT&T are among those offering high salaries, showing a broad interest across different industries.
 - **Job Title Variety:** There's a high diversity in job titles, from Data Analyst to Director of Analytics, reflecting varied roles and specializations within data analytics.
 
-![Top Paying Roles](assets\1_top_paying_analyst_roles.png)
+![Top Paying Roles](Charts\1_top_paying_analyst_roles.png)
 *Bar graph visualizing the salary for the top 10 salaries for data analysts; Perplexity generated this graph from my SQL query results*
 
 ### 2. Skills for Top Paying Jobs
@@ -94,7 +94,7 @@ Here's the breakdown of the most demanded skills for the top 10 highest paying d
 - **Tableau** is also highly sought after, with a bold count of 6.
 Other skills like **R**, **Snowflake**, **Pandas**, and **Excel** show varying degrees of demand.
 
-![Top Paying Skills](assets\2_top_paying_job_skills.png)
+![Top Paying Skills](Charts\2_top_paying_job_skills.png)
 *Bar graph visualizing the count of skills for the top 10 paying jobs for data analysts; Perplexity generated this graph from my SQL query results*
 
 ### 3. In-Demand Skills for Data Analysts
@@ -126,7 +126,7 @@ Here's the breakdown of the most demanded skills for data analyst :
 3. Prioritizing these areas ensures not only technical competency but also readiness for analytical roles that require advanced data handling, visualization, and reporting.
 
 
-![Top Demand skills](assets\3_top_demand_skills.png)
+![Top Demand skills](Charts\3_top_demand_skills.png)
 *Bar graph visualizing the count of skills for the top 10 paying jobs for data analysts; Perplexity generated this graph from my SQL query results*
 
 ### 4. Skills Based on Salary
@@ -173,7 +173,7 @@ Here's a breakdown of the results for top paying skills for Data Analysts:
 - Visualization and scripting tools including **DAX**, **Matplotlib**, **Bash**, and **Electron** are associated with solid compensation, indicating the value of skills that facilitate data visualization and automation in analytical workflows.
 
 
-![Top paying job skills](assets\4_top_paying_job_skills.png)
+![Top paying job skills](Charts\4_top_paying_job_skills.png)
 *Bar graph visualizing the count of skills for the top 10 paying jobs for data analysts; Perplexity generated this graph from my SQL query results*
 
 ### 5. Most Optimal Skills to Learn
@@ -228,7 +228,7 @@ ORDER BY
 LIMIT 25
 ```
 
-![Optimal skills](assets\5_optimal_skill.png)
+![Optimal skills](Charts\5_optimal_skill.png)
 *Bar graph visualizing the count of skills for the top 10 paying jobs for data analysts; Perplexity generated this graph from my SQL query results*
 
 This analysis identifies the most strategic skills for Data Analysts, focusing on remote roles with specified salaries. The goal is to highlight skills that are both in high demand (job security) and high paying (financial benefit).
